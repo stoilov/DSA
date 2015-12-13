@@ -16,18 +16,15 @@ public class Queue<T> {
     private int rear;
     private int length;
     private T[] queue;
-    private boolean empty;
 
     public Queue() {
         length = 2;
         queue = (T[]) new Object[length];
         front = rear = 0;
-        empty = true;
     }
 
     public void enqueue(T element) {
         queue[rear++] = element;
-        empty = false;
 
         if (rear == length) {
             rear = 0;
@@ -40,7 +37,7 @@ public class Queue<T> {
     }
 
     public T dequeue() {
-        if (empty) {
+        if (isEmpty()) {
             return null;
         }
 
@@ -50,10 +47,6 @@ public class Queue<T> {
 
         if (front == length) {
             front = 0;
-        }
-
-        if (front == rear) {
-            empty = true;
         }
 
         if (rear - front > 0 && (rear - front) * 4 == length) {
@@ -99,7 +92,7 @@ public class Queue<T> {
     }
 
     public boolean isEmpty() {
-        return empty;
+        return front == rear && queue[front] == null;
     }
 
 }
