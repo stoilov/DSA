@@ -90,6 +90,10 @@ public class Queue<T> {
         rear = filled;
         queue = newQueue;
     }
+    
+    public T peek() {
+        return queue[front];
+    }
 
     public boolean isEmpty() {
         return front == rear && queue[front] == null;
