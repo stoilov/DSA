@@ -8,6 +8,7 @@ package linearStructures;
 /**
  *
  * @author stoilov
+ * @param <T>
  */
 public class Queue<T> {
 
@@ -46,7 +47,7 @@ public class Queue<T> {
         T dequeued = queue[front];
         queue[front] = null;
         front++;
-        
+
         if (front == length) {
             front = 0;
         }
@@ -77,26 +78,26 @@ public class Queue<T> {
 
         return dequeued;
     }
-    
+
     private void copyQueue() {
         T[] newQueue = (T[]) new Object[length];
 
-            int filled = 0;
-            for (int i = front; i < queue.length; i++) {
-                newQueue[filled] = queue[i];
-                filled++;
-            }
+        int filled = 0;
+        for (int i = front; i < queue.length; i++) {
+            newQueue[filled] = queue[i];
+            filled++;
+        }
 
-            for (int i = 0; i < rear; i++) {
-                newQueue[filled] = queue[i];
-                filled++;
-            }
+        for (int i = 0; i < rear; i++) {
+            newQueue[filled] = queue[i];
+            filled++;
+        }
 
-            front = 0;
-            rear = filled;
-            queue = newQueue;
+        front = 0;
+        rear = filled;
+        queue = newQueue;
     }
-    
+
     public boolean isEmpty() {
         return empty;
     }
