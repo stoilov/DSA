@@ -24,6 +24,10 @@ public class Queue<T> {
     }
 
     public void enqueue(T element) {
+        if (element == null) {
+            return;
+        }
+        
         queue[rear++] = element;
 
         if (rear == length) {
