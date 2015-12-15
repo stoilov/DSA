@@ -35,8 +35,7 @@ public class Queue<T> {
         }
 
         if (rear == front) {
-            length *= 2;
-            copyQueue();
+            resizeQueue(length * 2);
         }
     }
 
@@ -69,14 +68,19 @@ public class Queue<T> {
         }
 
         if (front - rear > 0 && (length - front + rear) * 4 == length) {
-            length /= 2;
-            copyQueue();
+            resizeQueue(length / 2);
         }
 
         return dequeued;
     }
 
-    private void copyQueue() {
+    private void resizeQueue(int newLength) {
+        if (newLength >= 2) {
+            length = newLength;
+        }
+        
+        length = newLength;
+        
         T[] newQueue = (T[]) new Object[length];
 
         int filled = 0;

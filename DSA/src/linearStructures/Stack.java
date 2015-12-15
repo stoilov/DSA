@@ -54,7 +54,7 @@ public class Stack<T> {
             length /= 2;
             T[] newStack = (T[]) new Object[length];
 
-            for (int i = 0; i < length; i++) {
+            for (int i = 0; i < current; i++) {
                 newStack[i] = stack[i];
             }
 
@@ -65,7 +65,7 @@ public class Stack<T> {
     }
 
     public boolean isEmpty() {
-        return stack[0] == null;
+        return current == 0;
     }
 
 }
