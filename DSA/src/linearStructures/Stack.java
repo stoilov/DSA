@@ -13,7 +13,7 @@ package linearStructures;
 public class Stack<T> {
 
     private int length;
-    T[] stack;
+    private T[] stack;
     private int current;
 
     public Stack() {
