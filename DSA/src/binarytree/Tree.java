@@ -78,26 +78,25 @@ public class Tree<T extends Comparable<T>> {
         if (filename == null || isEmpty()) {
             return;
         }
-        
-        writeTree(root, filename);
-    }
-
-    private void writeTree(TreeNode node, String filename) {
-        if (filename == null || node == null) {
-            return;
-        }
-
-        writeTree(node.left, filename);
 
         try (ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(filename))) {
-            stream.writeObject(node.getData());
+            writeTree(root, stream);
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
 
-        writeTree(node.right, filename);
+    }
+
+    private void writeTree(TreeNode node, ObjectOutputStream stream) throws IOException {
+        if (stream == null || node == null) {
+            return;
+        }
+
+        writeTree(node.left, stream);
+        stream.writeObject(node.getData());
+        writeTree(node.right, stream);
     }
 
     @Override
