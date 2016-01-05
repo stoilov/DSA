@@ -78,6 +78,8 @@ public class Tree<T extends Comparable<T>> {
         if (filename == null || isEmpty()) {
             return;
         }
+        
+        writeTree(root, filename);
     }
 
     private void writeTree(TreeNode node, String filename) {
