@@ -30,13 +30,13 @@ public class TreeNode<T extends Comparable<T>> {
 
         if (element.compareTo(data) < 0) {
             if (left == null) {
-                left = new TreeNode(element);
+                left = new TreeNode<>(element);
             } else {
                 left.insertObj(element);
             }
         } else {
             if (right == null) {
-                right = new TreeNode(element);
+                right = new TreeNode<>(element);
             } else {
                 right.insertObj(element);
             }
