@@ -12,7 +12,7 @@ import java.util.Random;
  *
  * @author stoilov
  */
-public class QuickSort {
+public class Sort {
 
     private static final Random random = new Random();
 
