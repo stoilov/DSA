@@ -58,6 +58,14 @@ public class Stack<T> {
 
         return popped;
     }
+    
+    public T top() {
+        if (isEmpty()) {
+            return null;
+        }
+        
+        return stack[current];
+    }
 
     public boolean isEmpty() {
         return current == 0;
