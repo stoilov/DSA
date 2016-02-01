@@ -90,4 +90,28 @@ public class DirectedGraph extends WeightedGraph {
         return result;
     }
 
+    public double[][] floyd() {
+        double[][] result = new double[size()][size()];
+
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result.length; j++) {
+                result[i][j] = cost(i, j);
+            }
+        }
+
+        double midpath;
+        for (int middle = 0; middle < result.length; middle++) {
+            for (int i = 0; i < result.length; i++) {
+                for (int j = 0; j < result.length; j++) {
+                    midpath = result[i][middle] + result[middle][j];
+                    if (result[i][j] > midpath) {
+                        result[i][j] = midpath;
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
 }
