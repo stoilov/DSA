@@ -72,11 +72,11 @@ public class Heap<T extends Comparable<T>> {
             right = rightChild(index);
             smallest = index;
             
-            if (left < heap.size() && heap.get(left).compareTo(heap.get(right)) < 0) {
+            if (left < heap.size() && heap.get(left).compareTo(heap.get(smallest)) < 0) {
                 smallest = left;
             }
 
-            if (right < heap.size() && heap.get(left).compareTo(heap.get(right)) > 0) {
+            if (right < heap.size() && heap.get(left).compareTo(heap.get(smallest)) > 0) {
                 smallest = right;
             }
             
