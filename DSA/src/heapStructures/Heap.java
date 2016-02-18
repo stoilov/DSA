@@ -60,6 +60,7 @@ public class Heap<T extends Comparable<T>> {
             heap.set(0, last);
         }
 
+        filterDown(0);
         return removed;
     }
 
