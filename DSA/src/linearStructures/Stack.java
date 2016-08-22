@@ -27,9 +27,7 @@ public class Stack<T> {
 
             T[] newStack = (T[]) new Object[length];
 
-            for (int i = 0; i < stack.length; i++) {
-                newStack[i] = stack[i];
-            }
+            System.arraycopy(stack, 0, newStack, 0, stack.length);
 
             stack = newStack;
         }
@@ -49,9 +47,7 @@ public class Stack<T> {
             length /= 2;
             T[] newStack = (T[]) new Object[length];
 
-            for (int i = 0; i < current; i++) {
-                newStack[i] = stack[i];
-            }
+            System.arraycopy(stack, 0, newStack, 0, current);
 
             stack = newStack;
         }
